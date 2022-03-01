@@ -1,6 +1,8 @@
 # Alura Typescript
 
-Welcome to my Alura Typescript Couse repository, I've made some changes of my own, but roughly is the same one.
+Welcome to my Alura Typescript Couse repository.
+
+This repository is the product of a course I am taking on Typescript, I've made some changes of my own, but roughly is the same one.
 
 
 ## Quick links
