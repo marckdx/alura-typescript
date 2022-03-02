@@ -1,3 +1,4 @@
+import { LogarTempoExecucao } from "../decorators/LogarTempoExecucao.js";
 import { DiasDaSemana } from "../enums/DiasDaSemana.js";
 import { Negociacao } from "../models/Negociacao.js";
 import { Negociacoes } from "../models/Negociacoes.js";
@@ -28,6 +29,7 @@ export class NegociacaoController{
         this.mensagemView = new MensagemView('#mensagemView');
     }
 
+    @LogarTempoExecucao()
     public adiciona(): void{
         const negociacao = Negociacao.criaDe(
             this.inputTicker.value,

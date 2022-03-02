@@ -31,5 +31,6 @@ export abstract class View<T>{
             template = template.replace(/<script>[\s\S]*?<\/script>/, '');
         }
         this.elemento.innerHTML = template;
+
     }
 }
