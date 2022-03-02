@@ -28,9 +28,9 @@ After the commands being executed your default browser should open at http://loc
 
 ## Technologies
 
-[Concurrently](https://github.com/open-cli-tools/concurrently) for running more than one command on NodeJS;
-[Lite Server](https://github.com/johnpapa/lite-server) for running the application, acting as a server;
-[Typescript](https://github.com/microsoft/TypeScript) as development language/superset.
+* [Concurrently](https://github.com/open-cli-tools/concurrently) for running more than one command on NodeJS;
+* [Lite Server](https://github.com/johnpapa/lite-server) for running the application, acting as a server;
+* [Typescript](https://github.com/microsoft/TypeScript) as development language/superset.
 
 ## Contributing
 
