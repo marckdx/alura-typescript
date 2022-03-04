@@ -1,4 +1,5 @@
-import { LogarTempoExecucao } from "../decorators/LogarTempoExecucao.js";
+import { LogarTempoExecucao, InspectDecorator, DomInjector } from "../decorators/Index.js";
+
 import { DiasDaSemana } from "../enums/DiasDaSemana.js";
 import { Negociacao } from "../models/Negociacao.js";
 import { Negociacoes } from "../models/Negociacoes.js";
@@ -6,30 +7,32 @@ import { MensagemView } from "../views/MensagemView.js";
 import { NegociacoesView } from "../views/NegociacoesView.js";
 
 export class NegociacaoController{
+    @DomInjector('#ticker')
     private inputTicker: HTMLInputElement;
+    @DomInjector('#data')
     private inputData: HTMLInputElement;
+    @DomInjector('#quantidade')
     private inputQuantidade: HTMLInputElement;
+    @DomInjector('#valor')
     private inputValor: HTMLInputElement;
-
-    private negociacoes: Negociacoes;
+    //@DomInjector('#negociacoesView')
     private negociacoesView: NegociacoesView;
+    //@DomInjector('#mensagemView')
     private mensagemView: MensagemView;
+    
+    private negociacoes: Negociacoes;
 
     constructor(){
-        this.negociacoes = new Negociacoes();
+        this.negociacoes = new Negociacoes();        
         this.negociacoesView = new NegociacoesView('#negociacoesView');
-
-        this.inputTicker = document.querySelector('#ticker') as HTMLInputElement;
-        this.inputData = document.querySelector('#data') as HTMLInputElement;
-        this.inputQuantidade = document.querySelector('#quantidade') as HTMLInputElement;
-        this.inputValor = document.querySelector('#valor') as HTMLInputElement;
-
-        this.negociacoesView.update(this.negociacoes);
-        this.inputData.value = new Date().toISOString().substring(0,10);
         this.mensagemView = new MensagemView('#mensagemView');
+
+        
+        this.negociacoesView.update(this.negociacoes);
     }
 
     @LogarTempoExecucao()
+    @InspectDecorator
     public adiciona(): void{
         const negociacao = Negociacao.criaDe(
             this.inputTicker.value,
